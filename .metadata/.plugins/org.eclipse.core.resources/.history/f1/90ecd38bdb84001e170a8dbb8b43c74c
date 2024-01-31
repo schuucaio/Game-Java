@@ -1,0 +1,48 @@
+package model;
+
+import java.util.Random;
+
+public class Calcular {
+	private int dificuldade;
+	private int valor1;
+	private int valor2;
+	private int operacao;
+	private int resultado;
+	
+	public Calcular(int dificuldade) {
+		//Geração Randomica
+			Random rand = new Random();
+		this.operacao = rand.nextInt(3);
+		this.dificuldade = dificuldade;
+		
+		if(dificuldade == 1) {
+			//Fácil
+			this.valor1 = rand.nextInt(10); //Vai gerar valor de 0 a 9
+			this.valor2 = rand.nextInt(10); 
+			//Médio
+		}else if(dificuldade == 2) {
+			this.valor1 = rand.nextInt(100); //Vai gerar valor de 0 a 99
+			this.valor2 = rand.nextInt(100); 
+		}else if(dificuldade == 3) {
+			this.valor1 = rand.nextInt(1000); //Vai gerar valor de 0 a 999
+			this.valor2 = rand.nextInt(1000); 
+	}	
+	
+	public int getDificuldade() {
+		return dificuldade;
+	}
+
+	public int getValor1() {
+		return valor1;
+	}
+	public int getValor2() {
+		return valor2;
+	}
+	public int getOperacao() {
+		return operacao;
+	}
+	public int getResultado() {
+		return resultado;
+}
+
+	

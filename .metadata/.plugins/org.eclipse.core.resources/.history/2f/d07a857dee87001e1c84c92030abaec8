@@ -1,0 +1,16 @@
+package view;
+
+import java.util.Scanner;
+
+public class GamePrincipal {
+
+	static Scanner teclado = new Scanner(System.in);
+	static int pontos = 0; //Para controlar a pontuação do usuário no game
+	static Calcular cal;
+	
+	public static void main(String[] args) {
+
+	}
+
+}
+	 

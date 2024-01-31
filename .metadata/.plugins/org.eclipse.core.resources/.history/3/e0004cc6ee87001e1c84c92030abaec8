@@ -1,0 +1,22 @@
+package view;
+
+import java.util.Scanner;
+
+import model.Calcular;
+
+public class GamePrincipal {
+
+	static Scanner teclado = new Scanner(System.in);
+	static int pontos = 0; //Para controlar a pontuação do usuário no game
+	static Calcular calc;
+	
+	public static void main(String[] args) {
+		Game.jogar();
+	}
+
+	public static void jogar() {
+		
+	}
+	
+}
+	 

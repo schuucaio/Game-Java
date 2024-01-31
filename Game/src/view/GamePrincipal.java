@@ -1,0 +1,70 @@
+package view;
+
+import java.util.Scanner;
+
+import model.Calcular;
+
+public class GamePrincipal {
+
+	static Scanner teclado = new Scanner(System.in);
+	static int pontos = 0; // Para controlar a pontuação do usuário no game
+	static Calcular calc;
+
+	public static void main(String[] args) {
+		GamePrincipal.jogar();
+	}
+
+	public static void jogar() {
+		System.out.println("Informe o nível de dificuldade desejada [1, 2, 3 ou 4]: ");
+		int dificuldade = GamePrincipal.teclado.nextInt();
+
+		GamePrincipal.calc = new Calcular(dificuldade);
+
+		System.out.println("Informe o resultado para a seguinte operação: ");
+
+		// SOMAR
+		if (calc.getOperacao() == 0) {
+			System.out.println(calc.getValor1() + " + " + calc.getValor2());
+			int resposta = GamePrincipal.teclado.nextInt();
+
+			if (calc.somar(resposta)) {
+				GamePrincipal.pontos += 1; // Ganha 1 ponto
+				System.out.println("Você tem " + GamePrincipal.pontos + " pontos");
+			}
+		}
+		// DIMINUIR
+		else if (calc.getOperacao() == 1) {
+			System.out.println(calc.getValor1() + " - " + calc.getValor2());
+			int resposta = GamePrincipal.teclado.nextInt();
+
+			if (calc.diminuir(resposta)) {
+				GamePrincipal.pontos -= 1; // Ganha 1 ponto
+				System.out.println("Você tem " + GamePrincipal.pontos + " pontos");
+			}
+		}
+
+		// MULTIPLICAR
+		else if (calc.getOperacao() == 2) {
+			System.out.println(calc.getValor1() + " * " + calc.getValor2());
+			int resposta = GamePrincipal.teclado.nextInt();
+
+			if (calc.multiplicar(resposta)) {
+				GamePrincipal.pontos -= 1; // Ganha 1 ponto
+				System.out.println("Você tem " + GamePrincipal.pontos + " pontos");
+			}
+		} else {
+			System.out.println("A operação " + calc.getOperacao() + "não é reconhecida. ");
+		}
+		System.out.println("Deseja Continuar? [1 - Sim, 0 - Não]");
+		int continuar = GamePrincipal.teclado.nextInt();
+
+		if (continuar == 1) {
+			GamePrincipal.jogar();
+		} else {
+			System.out.println("Sua pontuação é:" + GamePrincipal.pontos);
+			System.out.println("Até a próxima!");
+			System.exit(0);
+		}
+	}
+
+}
